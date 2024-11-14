@@ -1,6 +1,6 @@
-@import './config';
-@import './colors';
-@import './mixin';
-@import './fn';
-@import './font-size';
-@import './rwd';
+@use './config' as *;
+@use './colors' as *;
+@use './mixin' as *;
+@use './fn' as *;
+@use './font-size' as *;
+@use './rwd' as *;

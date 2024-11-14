@@ -35,7 +35,8 @@ export default defineNuxtConfig({
     '@nuxt/icon', // https://nuxt.com/modules/icon
     '@nuxtjs/i18n', // https://nuxt.com/modules/i18n
     '@nuxtjs/color-mode', // https://color-mode.nuxtjs.org/?utm_source=nuxt.com&utm_medium=aside-module&utm_campaign=nuxt.com
-    '@nuxt/fonts' // https://fonts.nuxt.com/get-started/installation
+    '@nuxt/fonts', // https://fonts.nuxt.com/get-started/installation
+    '@element-plus/nuxt' // https://github.com/element-plus/element-plus-nuxt
   ],
   devServer: {
     port: Number(process.env.NUXT_PORT || 3001),
@@ -50,6 +51,7 @@ export default defineNuxtConfig({
   colorMode: {
     classSuffix: ''
   },
+
   // 多語系 -------------------------------------------------------------
   i18n: {
     strategy: 'prefix_except_default',
@@ -102,6 +104,7 @@ export default defineNuxtConfig({
       clarityCode: ''
     }
   },
+
   // icon --------------------------------------------------------------
   ui: {
     icons: {
@@ -116,6 +119,7 @@ export default defineNuxtConfig({
       }
     ]
   },
+
   // font --------------------------------------------------------------
   // https://nuxt.dev.org.tw/modules/fonts
   fonts: { // 自動會抓不用設定
@@ -125,6 +129,14 @@ export default defineNuxtConfig({
       // { name: 'Sour Gummy', provider: 'google' }
     ]
   },
+
+  // element plus setting ----------------------------------------------
+  // elementPlus: {
+  //   icon: 'ElIcon',
+  //   importStyle: 'scss'
+  //   // themes: ['dark'] //暗黑模式
+  // },
+
   // 組件配置 -----------------------------------------------------------
   components: {
     dirs: [
@@ -170,7 +182,10 @@ export default defineNuxtConfig({
   },
 
   // style -------------------------------------------------------------
-  css: ['@/assets/styles/css/index.css'],
+  css: [
+    '@/assets/styles/css/index.css'
+    // 'element-plus/dist/index.css'‘
+  ],
   stylelint: {
     lintOnStart: false, // 專案啟動時不自動檢查所有相關檔案
     chokidar: true // 監聽文件異動進行檢核（文件未列出此選項）
@@ -222,7 +237,10 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: { // scss 配置
-          additionalData: '@use "@/assets/styles/scss/index.scss" as *;'
+          additionalData: `
+            @use "@/assets/styles/scss/index.scss" as *;
+            @use "@/assets/styles/scss/element-plus/index.scss" as element;
+          `
         }
       }
     },

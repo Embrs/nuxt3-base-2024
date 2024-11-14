@@ -10,7 +10,8 @@ const pageList = [
   'i18n',
   'color',
   'font',
-  'open'
+  'open',
+  'element-plus'
 ];
 </script>
 
@@ -24,7 +25,7 @@ const pageList = [
       v-for="page of pageList" :key="page"
       :to="localePath(`/demo/${page}`)"
     )
-      button to {{ tool.FirstUpper(page) }}
+      ElButton to {{ tool.FirstUpper(page) }}
   NuxtPage
 </template>
 
