@@ -1,6 +1,5 @@
 <script setup lang="ts">
 // OpenGroup
-// import { OpenDialogDemo } from '@/.nuxt/components';
 
 // 資料 --------------------------------------------------------------------------------------------
 const openList = ref<OpenItem[]>([]);
