@@ -14,12 +14,12 @@ const availableLocales = computed(() => {
 .PageDemoI18n
   p PageDemoI18n
   NuxtLink(:to="localePath('/')")
-    button {{ $t('backHome') }}
+    ElButton {{ $t('backHome') }}
   .row-item
     NuxtLink(
       v-for="localeItem in availableLocales" :key="localeItem.code" :to="switchLocalePath(localeItem.code)"
     )
-      button {{ localeItem.name }}
+      ElButton {{ localeItem.name }}
   .row-item
     p {{ $t('about.title') }}
     a(href="https://clairechang.tw/2023/08/29/nuxt3/nuxt-v3-i18n/" target="_blank") 教學連結

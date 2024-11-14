@@ -1,7 +1,8 @@
 <script setup lang="ts">
-// OpenDialogDemo 彈窗測試
-const $re = UseRe();
+// DialogDemo
 // 資料 --------------------------------------------------------------------------------------------
+const storeTool = StoreTool();
+
 const props = defineProps({
   params: {
     type: Object as () => OpenDialogDemo,
@@ -13,77 +14,103 @@ const props = defineProps({
   }
 });
 
+const visible = ref(true);
+const isChange = ref(false);
+const isWaiting = ref(false);
+const demoText = ref('');
+
+// 標題
+const title = computed(() => {
+  return 'demo';
+});
+
 // 接收事件 -----------------------------------------------------------------------------------------
-const ClickOpenDemo = lodash.debounce(() => {
-  const openParams: OpenDialogDemo = {
-    demo: 'test123'
-  };
-  openCom('OpenDialogDemo', openParams);
+const OnHandleClose = (done: () => void) => {
+  if (!isChange.value) return done();
+  ElMessageBox.confirm(
+    '有變動尚未完成，確定是否要關閉？',
+    '關閉詢問',
+    {
+      confirmButtonText: '關閉',
+      cancelButtonText: '取消',
+      type: 'warning'
+    }
+  ).then(() => done());
+};
+
+// 參數變化
+const OnChnage = () => {
+  isChange.value = true;
+};
+
+// 完成時
+const OnComplete = () => {
+  MittRefresh();
+  isChange.value = false;
+  visible.value = false;
+};
+
+// 點擊新增按鈕
+const ClickCreateBtn = lodash.debounce(() => {
+  // if (isWaiting.value) return;
+  // isWaiting.value = true;
+  // await elStaffForm.value.CreateFlow();
+  // isWaiting.value = false;
+  OnComplete();
 }, 400, { leading: true, trailing: false });
 
+// 流程 --------------------------------------------------------------------------------------------
+// 函式 --------------------------------------------------------------------------------------------
+// Api ---------------------------------------------------------------------------------------------
 // 生命週期 -----------------------------------------------------------------------------------------
-
-const TestOnRefresh = () => {
-  console.log('level', props.level, 123);
-};
-onMounted(() => {
-  console.log('params', props.params);
-  $re.RefreshBind(TestOnRefresh);
-});
 
 // 對外事件 -----------------------------------------------------------------------------------------
 const emit = defineEmits(['on-close']);
-const EmitClose = () => {
-  emit('on-close');
-};
 
+/* 刷新頁面 */
 const MittRefresh = () => {
   mitt.emit('refresh', { abc: 'test456' });
 };
-// Ref 輸出 ----------------------------------------------------------------------------------------
-// defineExpose({ ... })
+/* 關閉銷毀 */
+const EmitClose = () => {
+  emit('on-close');
+};
 </script>
 
 <template lang="pug">
-.OpenDialogDemo
-  .mask
-  .card-box
-    p OpenDialogDemo
-    Icon(
-      name="material-symbols:close-rounded"
-      class="close-btn"
-      @click="EmitClose"
-    )
-    .row-item
-      button(@click="ClickOpenDemo") Open Demo
-      button(@click="MittRefresh") Call Refresh
+ElDialog(
+  v-model="visible"
+  :title="title"
+  :width="storeTool.isMobile ? '95%':'800px'"
+  :before-close="OnHandleClose"
+  :destroy-on-close="true"
+  lock-scroll
+  @closed="EmitClose"
+)
+  #DialogDemo
+    Loading
+      div
+        p {{ props.params }}
+        p 嘗試輸入後關閉
+        ElInput(v-model="demoText" aria-placeholder="輸入文字" @change="OnChnage")
+
+  template(#footer)
+    #DialogDemoFooter
+      elButton(
+        type="primary"
+        :loading="isWaiting"
+        @click="ClickCreateBtn"
+      ) 新增
 </template>
 
 <style lang="scss" scoped>
 // 佈局 ----
-.OpenDialogDemo {
-  @include fixed(fill);
-  @include center;
-  .mask {
-    @include absolute(fill);
-    background-color: rgb(0 0 0 / 60%);
-  }
-  .card-box {
-    @include wh(400px, 200px);
-    position: relative;
-    background-color: #fff;
-    z-index: 1;
-  }
-  // TODO
+#DialogDemo {
+  height: 100%;
 }
-
+#DialogDemoFooter {
+  @include row-end;
+  height: 100%;
+}
 // 組件 ----
-.close-btn {
-  @include btn-click;
-  @include absolute("top-right", 10px, 10px);
-  @include fs(30px);
-}
-.row-item {
-  @include row(10px);
-}
 </style>

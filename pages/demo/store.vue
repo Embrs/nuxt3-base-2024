@@ -5,7 +5,7 @@ const storeDemo = StoreDemo();
 
 <template lang="pug">
 .PageDemoStore
-  button(@click="storeDemo.Add") Add
+  ElButton(@click="storeDemo.Add") Add
   p {{ storeDemo.count }}
   p {{ storeDemo.doubleCount }}
   UiDemoStore

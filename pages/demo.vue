@@ -11,6 +11,7 @@ const pageList = [
   'color',
   'font',
   'open',
+  'rwd',
   'element-plus'
 ];
 </script>
@@ -19,7 +20,7 @@ const pageList = [
 .PageDemo
   p PageDemo
   NuxtLink(to="/")
-    button to Home
+    ElButton to Home
   .btn-list
     NuxtLink(
       v-for="page of pageList" :key="page"

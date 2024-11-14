@@ -240,12 +240,12 @@ export default defineNuxtConfig({
           silenceDeprecations: ['legacy-js-api'],
           // @use "@/assets/styles/scss/index.scss" as *;
           additionalData: `
-            @use '@/assets/styles/scss/_config.scss' as *;
-            @use '@/assets/styles/scss/_colors.scss' as *;
-            @use '@/assets/styles/scss/_fn.scss' as *;
-            @use '@/assets/styles/scss/_mixin.scss' as *;
-            @use '@/assets/styles/scss/_font-size.scss' as *;
-            @use '@/assets/styles/scss/_rwd.scss' as *;
+            @use '@/assets/styles/scss/config.scss' as *;
+            @use '@/assets/styles/scss/colors.scss' as *;
+            @use '@/assets/styles/scss/fn.scss' as *;
+            @use '@/assets/styles/scss/mixin.scss' as *;
+            @use '@/assets/styles/scss/font-size.scss' as *;
+            @use '@/assets/styles/scss/rwd.scss' as *;
             @use "@/assets/styles/scss/element-plus/index.scss" as element;
           `
         }

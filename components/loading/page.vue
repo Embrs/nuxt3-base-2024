@@ -28,7 +28,7 @@ nuxtApp.hooks.hookOnce('app:rendered', (e) => {
 
 .LoadingPage {
   @include fs(50px);
-  @include wh(100vw, 100vh);
+  // @include wh(100vw, 100vh);
   @include center;
   position: fixed;
   color: $primary;

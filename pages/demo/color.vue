@@ -10,9 +10,9 @@ const ChangeTheme = (theme: ThemeType) => {
 .PageDemoColor
   p PageDemoColor
   .row-item
-    button(@click="ChangeTheme('light')") light
-    button(@click="ChangeTheme('dark')") dark
-    button(@click="ChangeTheme('system')") system
+    ElButton(@click="ChangeTheme('light')") light
+    ElButton(@click="ChangeTheme('dark')") dark
+    ElButton(@click="ChangeTheme('system')") system
   .color-box
 </template>
 

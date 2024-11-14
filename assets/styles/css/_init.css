@@ -14,7 +14,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body, #__nuxt { min-height: 100vh;}
+/* body, #__nuxt { min-height: 100vh;} */
 
 html, body, p, pre, menu {
   margin: 0;

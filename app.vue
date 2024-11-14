@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { UseInitMeta } from './composables/use-init-meta';
+import { UseWindowResize } from './composables/use-window-resize';
 
 const storeEnv = StoreEnv(); // 快取環境變數
 const $defer = UseDefer(); // 延遲渲染
+UseWindowResize();
 UseInitMeta(); // meta 資訊
 
 storeEnv.Init();

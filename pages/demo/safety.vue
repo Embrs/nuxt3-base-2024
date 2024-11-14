@@ -30,16 +30,27 @@ const AES256KeyIv = () => {
   p PageDemoSafety
   .row-item
     p base64
-    input(v-model="valObj.base64.val")
-    button(@click="Base64Encode") Encode
-    button(@click="Base64Decode") Decode
+    ElInput(
+      v-model="valObj.base64.val"
+      style="width: 300px"
+    )
+    div
+      ElButton(@click="Base64Encode") Encode
+    div
+      ElButton(@click="Base64Decode") Decode
 
   .row-item
     p aes256
-    input(v-model="valObj.aes256.val")
-    button(@click="AES256Encode") Encode
-    button(@click="AES256Decode") Decode
-    button(@click="AES256KeyIv") Create Key Iv
+    ElInput(
+      v-model="valObj.aes256.val"
+      style="width: 300px"
+    )
+    div
+      ElButton(@click="AES256Encode") Encode
+    div
+      ElButton(@click="AES256Decode") Decode
+    div
+      ElButton(@click="AES256KeyIv") Create Key Iv
   pre {{ valObj }}
 </template>
 

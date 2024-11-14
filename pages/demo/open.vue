@@ -22,7 +22,7 @@ onMounted(() => {
 <template lang="pug">
 .PageDemoOpen
   p PageDemoOpen
-  button(@click="ClickOpenDemo") Open demo
+  ElButton(@click="ClickOpenDemo") Open demo
   p(v-for="i of 100" :key="i") {{ i }}
 </template>
 

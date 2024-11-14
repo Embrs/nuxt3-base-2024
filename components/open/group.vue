@@ -41,6 +41,14 @@ onMounted(() => {
 onBeforeUnmount(() => {
   mitt.off('open');
 });
+
+watch(
+  () => openList.value.length,
+  (newLength) => {
+    // 隱藏滾動
+    tool.HiddenScrollbar(newLength > 0);
+  }
+);
 </script>
 
 <template lang="pug">

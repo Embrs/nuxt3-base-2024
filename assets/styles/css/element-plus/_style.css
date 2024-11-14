@@ -1,4 +1,4 @@
-/* .el-drawer__header {
+.el-drawer__header {
   height: 50px;
   margin-bottom: 0 !important;
   padding: 0 16px !important;
@@ -7,7 +7,7 @@
 .el-drawer__footer {
   height: 50px;
   padding: 0 16px !important;
-} */
+}
 /* .el-image-viewer__canvas {
   overflow: auto;
 } */

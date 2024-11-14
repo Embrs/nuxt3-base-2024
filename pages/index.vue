@@ -7,7 +7,7 @@
 .Home
   p Home
   NuxtLink(to="/demo")
-    button Demo page
+    ElButton Demo page
 
   //- UiDemoStore
 </template>

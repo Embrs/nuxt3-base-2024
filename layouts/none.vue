@@ -12,8 +12,8 @@
 
 // 佈局
 .NoneLayout {
-  max-width: 100vw;
-  min-height: 100vh;
+  // max-width: 100vw;
+  // min-height: 100vh;
 }
 
 </style>
