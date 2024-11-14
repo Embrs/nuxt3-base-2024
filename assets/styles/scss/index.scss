@@ -1,6 +1,7 @@
-@use './config' as *;
-@use './colors' as *;
-@use './mixin' as *;
-@use './fn' as *;
-@use './font-size' as *;
-@use './rwd' as *;
+@use './_config.scss' as *;
+@use './_colors.scss' as *;
+@use './_mixin.scss' as *;
+@use './_fn.scss' as *;
+@use './_font-size.scss' as *;
+@use './_rwd.scss' as *;
+

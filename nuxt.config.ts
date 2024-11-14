@@ -237,8 +237,15 @@ export default defineNuxtConfig({
     css: {
       preprocessorOptions: {
         scss: { // scss 配置
+          silenceDeprecations: ['legacy-js-api'],
+          // @use "@/assets/styles/scss/index.scss" as *;
           additionalData: `
-            @use "@/assets/styles/scss/index.scss" as *;
+            @use '@/assets/styles/scss/_config.scss' as *;
+            @use '@/assets/styles/scss/_colors.scss' as *;
+            @use '@/assets/styles/scss/_fn.scss' as *;
+            @use '@/assets/styles/scss/_mixin.scss' as *;
+            @use '@/assets/styles/scss/_font-size.scss' as *;
+            @use '@/assets/styles/scss/_rwd.scss' as *;
             @use "@/assets/styles/scss/element-plus/index.scss" as element;
           `
         }
