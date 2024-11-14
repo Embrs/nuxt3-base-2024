@@ -4,6 +4,7 @@ import { UseWindowResize } from './composables/use-window-resize';
 
 const storeEnv = StoreEnv(); // 快取環境變數
 const $defer = UseDefer(); // 延遲渲染
+const $elementI18n = UseElementI18n();
 UseWindowResize();
 UseInitMeta(); // meta 資訊
 
@@ -12,7 +13,7 @@ storeEnv.Init();
 </script>
 
 <template lang="pug">
-div
+ElConfigProvider(:locale="$elementI18n.elLocale.value")
   NuxtLoadingIndicator(color="#86D4A187")
   NuxtLayout
     NuxtPage
