@@ -1,18 +1,84 @@
-.el-drawer__header {
-  height: 50px;
-  margin-bottom: 0 !important;
-  padding: 0 16px !important;
-  border-bottom: 1px solid #eaeaea;
-}
-.el-drawer__footer {
-  height: 50px;
-  padding: 0 16px !important;
-}
-/* .el-image-viewer__canvas {
-  overflow: auto;
-} */
 
-  /* ----- 自定義按鈕 ----- */
-  /* .el-button--aa {
-    background-color: var(--tertiary-600) !important;
-  } */
+/* dialog --------------- */
+.el-overlay-dialog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.el-dialog {
+  max-height: 95%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.el-dialog.is-fullscreen {
+  width: 95% !important;
+  height: unset !important;
+}
+.el-dialog__header {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 20px !important;
+  font-weight: 700;
+} 
+.el-dialog__body {
+  overflow: auto;
+  padding: 20px;
+}
+.el-dialog__footer {
+  border-top: 1px solid #ddd;
+  padding: 10px 20px !important;
+}
+.el-dialog__headerbtn {
+  font-size: 20px !important;
+}
+
+/* date time picker --------------- */
+.el-date-picker__time-header .el-input__inner  {
+  font-size: 16px !important;
+}
+.el-date-picker__time-header .el-input__wrapper {
+  padding: 8px !important;
+}
+.el-picker-panel__footer .el-button--small {
+  font-size: 16px !important;
+} 
+.el-date-picker__header { 
+  font-size: 16px !important;
+}
+.el-picker-panel__icon-btn {
+  margin: 4px !important;
+  font-size: 20px !important; 
+}
+.el-date-picker__header-label {
+  font-size: 16px !important; 
+}
+.el-date-range-picker__header {
+  font-size: 16px !important; 
+}
+.el-date-table {
+  font-size: 16px !important; 
+}
+.el-date-table td .el-date-table-cell .el-date-table-cell__text {
+  width: 30px !important; 
+  height: 30px !important; 
+  line-height: 28px !important; 
+}
+.el-date-table td {
+  padding: 2px 0 !important;
+}
+.el-date-table td .el-date-table-cell {
+  height: 36px !important;
+}
+.el-year-table {
+  font-size: 16px !important;
+}
+.el-month-table {
+  font-size: 16px !important;
+}
+
+/* ----- 自定義按鈕 ----- */
+/* .el-button--aa {
+  background-color: var(--tertiary-600) !important;
+} */

@@ -38,6 +38,6 @@ const pageList = [
 
 // 組件 ----
 .btn-list {
-  @include row(10px);
+  @include row-wrap(10px);
 }
 </style>

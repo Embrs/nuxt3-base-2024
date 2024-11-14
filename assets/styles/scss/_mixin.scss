@@ -12,7 +12,7 @@
 }
 
 @mixin row($gap: 0, $align: center) {
-  display: flex;
+  display: inline-flex;
   align-items: $align;
   gap: $gap;
 }

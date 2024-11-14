@@ -25,6 +25,7 @@ const availableLocales = computed(() => {
     a(href="https://clairechang.tw/2023/08/29/nuxt3/nuxt-v3-i18n/" target="_blank") 教學連結
   ElDatePicker
   p {{ locale }}
+
 </template>
 
 <style lang="scss" scoped>
